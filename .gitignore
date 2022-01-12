@@ -291,4 +291,6 @@ __pycache__/
 
 dist/
 node_modules/
-blazor.extensions.canvas.js
+
+**/blazor.extensions.canvas.js
+**/package-lock.json
