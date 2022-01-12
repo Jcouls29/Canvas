@@ -31,3 +31,13 @@ jobs:
 
     - name: Publish
       run: dotnet nuget push *.nupkg --skip-duplicate --api-key ${{secrets.GITHUB_TOKEN}} --source "github"
+
+    - name: Create Release
+      uses: actions/create-release@master
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: Release ${{ github.ref }}
+        draft: false
+        prerelease: false
