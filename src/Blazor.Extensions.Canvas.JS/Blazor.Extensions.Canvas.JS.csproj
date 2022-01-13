@@ -44,4 +44,17 @@
   <Target Name="CopyDist" AfterTargets="RunWebpack" DependsOnTargets="RunWebpack">
     <Copy SourceFiles="@(WebpackOutputs)" DestinationFolder="..\Blazor.Extensions.Canvas\wwwroot" SkipUnchangedFiles="true" />
   </Target>
+  
+  <Target Name="LinuxCleanNpm" BeforeTargets="AfterClean" Condition="$([MSBuild]::IsOSPlatform('Linux'))">
+    <Message Importance="high" Text="Cleaning NPM packages..." />
+    <Exec Command="rm -rf ./node_modules" />
+    <Exec Command="rm -f ./package-lock.json" />
+  </Target>
+
+  <Target Name="WindowsCleanNpm" BeforeTargets="AfterClean" Condition="$([MSBuild]::IsOSPlatform('Windows'))">
+    <Message Importance="high" Text="(L) Cleaning NPM packages..." />
+    <Exec Command="rmdir /Q /S node_modules" />
+    <Exec Command="del /Q /S package-lock.json" />
+  </Target>
+  
 </Project>
