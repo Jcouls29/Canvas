@@ -18,6 +18,8 @@
     <RazorLangVersion>latest</RazorLangVersion>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <TargetFramework>net6.0</TargetFramework>
+    <PackageProjectUrl>https://github.com/Jcouls29/Canvas</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Jcouls29/Canvas</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
